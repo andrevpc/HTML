@@ -1,0 +1,6 @@
+index.html é a guia principal do site
+Funciona com tags <p>Conteúdo</p> (p de palavra, l de link...)
+! no vsc -> ctrl+espaço -> enter ele já prepara o modelo
+
+Extensão Live Server atualiza o html -> apertar botão direito no body e abrir com o Live Server
+Escreva Lorem e de enter que ele faz um texto automatico
