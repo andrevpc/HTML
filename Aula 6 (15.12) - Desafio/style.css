@@ -11,10 +11,18 @@
 }
 
 #bg{
-    background: url(bg.jpg) no-repeat
+    background: url(bg2.jpg) no-repeat
     center center;
     background-size: cover;
     height: 100vh;
+}
+
+#bg2{
+    background: #1e130c;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, rgb(0,28,67), #000000);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, rgb(0,28,67), #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    height: 300vh;
+    
 }
 
 .navbar-brand{
@@ -23,24 +31,20 @@
     display: flex;
 }
 
-header {
-    padding: 0px 10px 0px 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: transparent;
-    height: 8vh;
-}
-
 #opcoes{
     display: flex;
     justify-content:space-evenly;
 }
 
-p {
+a{
+    text-decoration: none;
     font-family: 'Barlow', sans-serif;
     color:rgb(255, 255, 255);
-    padding: 5px
+}
+
+p2{
+    font-family: 'Barlow', sans-serif;
+    color:rgb(255, 255, 255)
 }
 
 h1{
@@ -53,11 +57,31 @@ h1{
 	top:40%;
 }
 
-#espandir{
-    width: 100vw;
-    top: 100vh
+#expandir{
+    position:absolute;
+    left:49.5%;
+	top:97%;
+    display: flex;
+    justify-content: center;
 }
 
 .material-symbols-outlined{
     color: #fff;
+}
+
+#curriculod{
+    position:absolute;
+    top: 200vh;
+    /* left: 40vw */
+}
+
+#outrosd{
+    position:absolute;
+    top: 300vh
+}
+
+@media (max-width: 555px){
+    #txt{
+        width: 40vw
+    }
 }
