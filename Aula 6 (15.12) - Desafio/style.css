@@ -52,7 +52,12 @@
     width: 8vh;
 }
 
-#linke{margin-top: 5vh;}
+#linke{
+    margin-top: 5vh;
+    margin-right: 5vh;
+}
+
+#git{margin-top: 5vh;}
 
 #insta{
     margin-top: 5vh;
@@ -118,13 +123,13 @@ h1{
 
 #foto_turma{
     max-width: 30vw;
+    max-height: 40vh;
     border-radius: 5%;
 }
 
 #curriculod{
     position:absolute;
     top: 200vh;
-    /* left: 40vw */
 }
 
 #opcoes a{
@@ -153,6 +158,10 @@ h1{
     border-radius: 33%;
 }
 
+.bi-github:hover{
+    color:#000000
+}
+
 .bi-instagram:hover{
     background: #833ab4;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #fcb045, #fd1d1d, #833ab4);  /* Chrome 10-25, Safari 5.1-6 */
@@ -160,19 +169,23 @@ h1{
 }
 
 .descricao{
-    font-size: 3em;
+    font-size: 7vh;
     cursor:default;
     margin-left: 3vh;
 }
 
 .itens{
-    font-size: 1.5em;
+    font-size: 3vh;
     cursor: default;
     margin-left: 3vh;
 }
 
+.explicacao_c{
+    margin-top: 1.2vh;
+}
+
 .explicacao{
-    font-size: 1em;
+    font-size: 2vh;
     cursor: default;
     margin-left: 5vh;
 }
@@ -184,9 +197,60 @@ h1{
 #popup{
     display: none;
     position: absolute;
-    height: 90vh;
-    width: 90vw;
-    background-color: #212529;
+    background: #1e130c;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top,#000000,rgb(0,28,67));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top,#000000, rgb(0,28,67)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+#popup1{
+    margin-left: 10vw;
+    display: none;
+    position: absolute;
+    background: #1e130c;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top,#000000,rgb(0,28,67));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top,#000000, rgb(0,28,67)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+#popup2{
+    margin-left: 20vw;
+    display: none;
+    position: absolute;
+    background: #1e130c;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top,#000000,rgb(0,28,67));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top,#000000, rgb(0,28,67)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+#popup3{
+    margin-left: 30vw;
+    display: none;
+    position: absolute;
+    background: #1e130c;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top,#000000,rgb(0,28,67));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top,#000000, rgb(0,28,67)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+button{
+    width:10vw;
+    height: 5vh;
+    border-radius:30px;
+    cursor: pointer;
+}
+
+#X{
+    color:#fd1d1d;
+    background-color:transparent;
+}
+
+.tecnico{
+    display: flex;
+}
+
+#subir{
+    position:absolute;
+    left:49.5%;
+	top:297%;
+    display: flex;
+    justify-content: center;
 }
 
 @media (max-width: 742px){
