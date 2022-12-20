@@ -5,6 +5,13 @@ function closeDescription(){
     document.getElementById("popup").style.display = "none";
 }
 
+function openDescription0(){
+    document.getElementById("popup0").style.display = "block";
+}
+function closeDescription0(){
+    document.getElementById("popup0").style.display = "none";
+}
+
 function openDescription1(){
     document.getElementById("popup1").style.display = "block";
 }

@@ -1,4 +1,3 @@
-<!-- https://towardsdatascience.com/how-to-easily-convert-a-python-script-to-an-executable-file-exe-4966e253c7e9 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +18,7 @@
                 <hr>
                 <div id="opcoes">
                     <a hreF="#perfil" >Perfil</a>
-                    <a href="#curriculo">Curriculo</a>
+                    <a href="#gambiarra">Curriculo</a>
                 </div>
             </div>
             <a id="insta" href="https://www.instagram.com/andre_polonio/" target="_blank" rwl="noopener noreferrer">
@@ -43,102 +42,111 @@
         </div>
     </div>
     <div id = "bg2">
-        <h1 id = "perfil">Perfil</h1>
-        <div id="foto_txt">
-            <img id = "foto_eu" src="eu.jpg">
+        <h1 style="margin-left: -0;" id = "perfil">Perfil</h1>
+        <div style="margin-top:15vh" id="foto_txt">
+            <img id = "foto_eu" src="Fotos/eu.jpg">
             <p class="descricao">Sou um estudante de Engenharia Mecanica na FAE Centro Universitario e sou jovem aprendiz em Desenvolvimento de Sistemas na Bosch</p>
         </div>
         <div id="curriculod">
-            <h1 id = "curriculo">Curriculo</h1>
-            <div id="foto_txt">
-                <img id = "foto_turma" src="turma.jpg">
-                <div>
-                    <p class="descricao">Experiencias:</p>
-                    <p class="itens">Profissionais</p>
-                    <p class="explicacao">Bosch|Aprendiz em Desenvolvimento de Sistemas</p>
-                    <p class="itens">Pessoais</p>
-                    <p class="explicacao">FAE Centro Universitario|Pastoral</p>
+            <div>
+                <div style="display: flex;">
+                    <h1 style="margin-top:0vh" id = "curriculo">Curriculo</h1>
+                    <p id="gambiarra" style="margin-top: 2vh;color: transparent">a</p>
+                </div>
+                <div id="foto_txt">
+                    <img id = "foto_turma" src="Fotos/turma.jpg">
                 </div>
                 <div>
                     <p class="descricao">Conhecimento:</p>
                     <div style="display:flex">
-                        <div><div class="tecnico"><p class="itens itens_c">Python<br>DevOps<br>CSharp<br>SQL<br>WEB<br>C++<br></p></div></div>
-                        <div class="tecnico"><p class="itens itens_c">Java<br>AutoCAD<br>Google Data Studio</p></div>
+                        <div><div class="tecnico"><p class="itens itens_c">Python<br>DevOps<br>CSharp<br>SQL<br>WEB</p></div></div>
+                        <div class="tecnico"><p class="itens itens_c">C++<br>Java<br>AutoCAD<br>Google Data Studio<br>Excel</p></div>
                     </div>
                 </div>
             </div>
-            <div style="display:flex">
-                <div>
-                    <p class="descricao">Cursos:</p>
-                    <p class="itens">Ingles</p>
-                    <p class="explicacao">Phil Young's|Nivel avancado</p>
-                    <p class="itens">Data Studio</p>
-                    <p class="explicacao">FAE Centro Universitario|Criar e combinar dados</p>
-                    <p class="itens">Excel</p>
-                    <p class="explicacao">FAE Centro Universitario|Para engenheiros</p>                    
-                    <p class="itens">DevOps</p>
-                    <p class="explicacao">Senai-Bosch</p>
-                    <p class="itens">CSharp</p>
-                    <p class="explicacao">Senai-Bosch</p>
+            <div style="margin-top: 20vh;margin-left: 6vw;">
+                <div style="display: flex">
+                    <div>
+                        <p class="descricao">Experiencias:</p>
+                        <p class="itens">Profissionais</p>
+                        <p class="explicacao">Bosch|Aprendiz em Desenvolvimento de Sistemas</p>
+                        <p class="itens">Pessoais</p>
+                        <p class="explicacao">FAE Centro Universitario|Pastoral</p>
+                    </div>
+                    <div>
+                        <p class="descricao">Cursos:</p>
+                        <p class="itens">Ingles</p>
+                        <p class="explicacao">Phil Young's|Nivel avancado</p>
+                        <p class="itens">Data Studio</p>
+                        <p class="explicacao">FAE Centro Universitario|Criar e combinar dados</p>
+                        <p class="itens">Excel</p>
+                        <p class="explicacao">FAE Centro Universitario|Para engenheiros</p>                    
+                        <p class="itens">DevOps</p>
+                        <p class="explicacao">Senai-Bosch</p>
+                        <p class="itens">CSharp</p>
+                        <p class="explicacao">Senai-Bosch</p>
+                    </div>
                 </div>
-                <div>
-                    <p class="descricao">Projetos:</p>
-                    <div style="display: flex">
-                        <div id="popup">
-                            <button id="X" onclick="closeDescription()">X</button>
-                            <p>Jogo que recebemos diagramas de palavras e devemos descobrir a palavra normal</p>
-                            <div style="display:flex">
-                                <a href="" download>
-                                    <button>Jogar</button>
-                                </a>
-                                <a href="Anagrama/Anagrama.py" download>
-                                    <button>Ver codigo</button>
-                                </a>
+                <div style="display:flex">
+                    <div>
+                        <p class="descricao">Projetos:</p>
+                        <div style="display: flex">
+                            <div id="popup">
+                                <button id="X" onclick="closeDescription()">X</button>
+                                <p>Jogo que recebemos diagramas de palavras e devemos descobrir a palavra normal</p>
+                                <div style="display:flex">
+                                    <a href="Jogos/Anagrama/Anagrama.py" download>
+                                        <button>Ver codigo</button>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <button onclick="openDescription()">Anagrama</button>
-
-                        <div id="popup1">
-                            <button id="X" onclick="closeDescription1()">X</button>
-                            <p>Jogo que devemos conectar 4 pontos, seja na diagonal, vertical ou horizontal, feito para ser jogado em dupla</p>
-                            <div style="display:flex">
-                                <a href="" download>
-                                    <button>Jogar</button>
-                                </a>
-                                <a href="Lig4/Lig4.py" download>
-                                    <button>Ver codigo</button>
-                                </a>
+                            <button onclick="openDescription()">Anagrama</button>
+                            
+                            <div id="popup0">
+                                <button id="X" onclick="closeDescription0()">X</button>
+                                <p>Baseado na brincadeira de crianca de juntar palavras que comecam com o fim da palavra anterior</p>
+                                <div style="display:flex">
+                                    <a href="Jogos/Encadeados/Encadeados.py" download>
+                                        <button>Ver codigo</button>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <button onclick="openDescription1()">Lig-4</button>
-
-                        <div id="popup2">
-                            <button id="X" onclick="closeDescription2()">X</button>
-                            <p>Baseado no jogo de atari de mesmo nome, voce deve desviar de asteroides e naves inimigas<br>Arcade com graficos vetoriais</p>
-                            <div style="display:flex">
-                                <a href="../output/Lig4" download>
-                                    <button>Jogar</button>
-                                </a>
-                                <a href="Anagrama/Anagrama.py" download>
-                                    <button>Ver codigo</button>
-                                </a>
+                            <button onclick="openDescription0()">Encadeados</button>
+    
+                            <div id="popup1">
+                                <button id="X" onclick="closeDescription1()">X</button>
+                                <p>Jogo que devemos conectar 4 pontos, seja na diagonal, vertical ou horizontal, feito para ser jogado em dupla</p>
+                                <div style="display:flex">
+                                    <a href="Jogos/exe/Lig4" download>
+                                        <button>Jogar</button>
+                                    </a>
+                                    <a href="Jogos/Lig4/Lig4.py" download>
+                                        <button>Ver codigo</button>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <button onclick="openDescription2()">Asteroids</button>
-
-                        <div id="popup3">
-                            <button id="X" onclick="closeDescription3()">X</button>
-                            <p>Programa que reconhece o movimento da camera e faz calculo com os sinais feitos pelo usuario</p>
-                            <div style="display:flex">
-                                <a>
-                                    <button>Jogar</button>
-                                </a>
-                                <a>
-                                    <button>Ver codigo</button>
-                                </a>
+                            <button onclick="openDescription1()">Lig-4</button>
+    
+                            <div id="popup2">
+                                <button id="X" onclick="closeDescription2()">X</button>
+                                <p>Baseado no jogo de atari de mesmo nome, voce deve desviar de asteroides e naves inimigas<br>Arcade com graficos vetoriais</p>
+                                <div style="display:flex">
+                                    <a href="Jogos/exe/Asteroids/main">
+                                        <button>Jogar</button>
+                                    </a>
+                                    <a href="Jogos/Asteroids/main" download>
+                                        <button>Ver codigo</button>
+                                    </a>
+                                </div>
                             </div>
+                            <button onclick="openDescription2()">Asteroids</button>
+    
+                            <div id="popup3">
+                                <button id="X" onclick="closeDescription3()">X</button>
+                                <p>Programa que reconhece o movimento da camera e faz calculo com os sinais feitos pelo usuario</p>
+                            </div>
+                            <button onclick="openDescription3()">Kinnect</button>
                         </div>
-                        <button onclick="openDescription3()">Kinnect</button>
                     </div>
                 </div>
             </div>
