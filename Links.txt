@@ -2,6 +2,10 @@ https://fonts.google.com/
 
 https://uigradients.com
 
+https://cssgradient.io/
+
 https://getbootstrap.com/
 
 https://www.radzen.com/
+
+https://www.photopea.com/
