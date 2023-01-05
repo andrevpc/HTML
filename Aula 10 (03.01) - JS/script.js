@@ -29,9 +29,9 @@ function verifyCPF()
         document.getElementById("sla").innerHTML="Invalido"
     
     // var cpfc = cpf.replace(cpf[9],n9).replace(cpf[10],n10)
-    // var cpfc = cpf.splice(9,2,n9,n10)
+    var cpfc = cpf.splice(9,2,n9,n10)
 
-    document.getElementById("sla").innerHTML=="Invalido"?document.getElementById("sla1").innerHTML = cpfc : null
+    document.getElementById("sla").innerHTML=="Invalido"?document.getElementById("sla1").innerHTML = cpf.join("").replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4") : null
 }
 
 // 705.484.450-52
