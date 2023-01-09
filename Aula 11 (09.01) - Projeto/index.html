@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT&display=swap" rel="stylesheet">
+    <title>Controle de estudantes</title>
+</head>
+<link rel="stylesheet" href="style.css">
+
+<body bgcolor="#eeeeee">
+    <header>
+        <div class="title">
+            <a href="index.html">
+                <h1 class="gradiente">CONTROLE</h1>
+            </a>
+            <h1>de estudantes</h1>
+        </div>
+        <div class="title">
+            <p><b>Cadastrar:</b></p>
+            <p style="margin-left: 0.5vw;" onclick="document.getElementById('id01').style.display='block'">Alunos</p>
+            <p style="margin-left: 1vw;margin-right:1vw">|</p>
+            <p>Sala</p>
+        </div>
+    </header>
+
+    <hr>
+    <div style="display:flex; justify-content: end;margin-top: 1vw;">
+        <form action="/action_page.php">
+            <label for="salas">Salas de aula:</label>
+            <select name="salas" id="salas">
+                <option value="ti">TI</option>
+                <option value="mecatronica">Mecatronica</option>
+                <option value="manufatura">Manufatura Avançada</option>
+            </select>
+        </form>
+    </div>
+    <div style="display: flex; flex-wrap: wrap;">
+        <div class="card">
+            <img class="img-estudantes"
+                src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSheZXnf27LhoKkcVFu_IbieY6fXIRG4U1Dvj8EMoH_qyWZyHtv"
+                class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title">LeBron</h5>
+                <p class="card-text">Idade: 38</p>
+                <button href="#" class="btn-card">Editar</button>
+            </div>
+        </div>
+        <div class="card">
+            <img class="img-estudantes"
+                src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSheZXnf27LhoKkcVFu_IbieY6fXIRG4U1Dvj8EMoH_qyWZyHtv"
+                class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title">LeBron</h5>
+                <p class="card-text">Idade: 38</p>
+                <button href="#" class="btn-card">Editar</button>
+            </div>
+        </div>
+        <div class="card">
+            <img class="img-estudantes"
+                src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSheZXnf27LhoKkcVFu_IbieY6fXIRG4U1Dvj8EMoH_qyWZyHtv"
+                class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title">LeBron</h5>
+                <p class="card-text">Idade: 38</p>
+                <button href="#" class="btn-card">Editar</button>
+            </div>
+        </div>
+        <div class="card">
+            <img class="img-estudantes"
+                src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSheZXnf27LhoKkcVFu_IbieY6fXIRG4U1Dvj8EMoH_qyWZyHtv"
+                class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title">LeBron</h5>
+                <p class="card-text">Idade: 38</p>
+                <button href="#" class="btn-card">Editar</button>
+            </div>
+        </div>
+        <div class="card">
+            <img class="img-estudantes"
+                src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSheZXnf27LhoKkcVFu_IbieY6fXIRG4U1Dvj8EMoH_qyWZyHtv"
+                class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title">LeBron</h5>
+                <p class="card-text">Idade: 38</p>
+                <button href="#" class="btn-card">Editar</button>
+            </div>
+        </div>
+        <div class="card">
+            <img class="img-estudantes"
+                src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSheZXnf27LhoKkcVFu_IbieY6fXIRG4U1Dvj8EMoH_qyWZyHtv"
+                class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title">LeBron</h5>
+                <p class="card-text">Idade: 38</p>
+                <button href="#" class="btn-card">Editar</button>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="id01" class="modal">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close"
+            title="Close Modal">&times;</span>
+
+        <!-- Modal Content -->
+        <form class="modal-content animate" action="/action_page.php">
+
+            <div class="container">
+                <div>
+                    <label for="uname"><b>Nome</b></label>
+                    <input type="text" placeholder="Nome" name="uname" required>
+                </div>
+                <div>
+                    <label for="idade"><b>Idade</b></label>
+                    <input type="number" placeholder="Idade" name="idade" required>
+                </div>
+                <div>
+                    <form action="/action_page.php">
+                        <label for="salas">Sexo:</label>
+                        <select name="salas" id="salas">
+                            <option value="ti">Masculino</option>
+                            <option value="mecatronica">Feminino</option>
+                            <option value="manufatura">Outro</option>
+                        </select>
+                    </form>
+                </div>
+                <div>
+                    <form action="/action_page.php">
+                        <label for="salas">Salas de aula:</label>
+                        <select name="salas" id="salas">
+                            <option value="ti">TI</option>
+                            <option value="mecatronica">Mecatronica</option>
+                            <option value="manufatura">Manufatura Avançada</option>
+                        </select>
+                    </form>
+                </div>
+                <div>
+                    <button>Cadastrar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
