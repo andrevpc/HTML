@@ -1,0 +1,33 @@
+#container-fluid{
+    display: flex;
+    justify-content: space-between;
+}
+
+.gradiente {
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    /* background-image: linear-gradient(#001fff, #8406d6); */
+    background: #b92b27; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #1565c0, #b92b27);
+    background: linear-gradient(to right, #1565c0, #b92b27);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.card {
+    width: 20vw;
+    margin: 2vh 0vw 2vh 3.9vw; /* top | right | bottom | left */
+    text-align: center;
+    background-color: #ffffff;
+    border: solid 1px;
+    border-color: rgb(218, 218, 218);
+    border-radius: 10px;
+}
+
+.card img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px 10px 0px 0px;
+}
