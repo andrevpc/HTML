@@ -24,7 +24,7 @@
             <p><b>Cadastrar:</b></p>
             <p style="margin-left: 0.5vw;" onclick="document.getElementById('id01').style.display='block'">Alunos</p>
             <p style="margin-left: 1vw;margin-right:1vw">|</p>
-            <p>Sala</p>
+            <p onclick="document.getElementById('id02').style.display= 'block'">Sala</p>
         </div>
     </header>
 
@@ -139,6 +139,30 @@
                             <option value="manufatura">Manufatura Avançada</option>
                         </select>
                     </form>
+                </div>
+                <div>
+                    <button>Cadastrar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- The Modal -->
+    <div id="id02" class="modal">
+        <span onclick="document.getElementById('id02').style.display='none'" class="close"
+            title="Close Modal">&times;</span>
+
+        <!-- Modal Content -->
+        <form class="modal-content animate" action="/action_page.php">
+
+            <div class="container">
+                <div>
+                    <label for="sname"><b>Nome</b></label>
+                    <input type="text" placeholder="Nome" name="sname" required>
+                </div>
+                <div>
+                    <label for="capacidade"><b>Capacidade</b></label>
+                    <input type="number" name="capacidade" required>
                 </div>
                 <div>
                     <button>Cadastrar</button>

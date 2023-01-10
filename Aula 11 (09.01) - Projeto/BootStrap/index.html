@@ -12,19 +12,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Controle de Estudantes</title>
 </head>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/style.css">
 
 <body>
-    <nav class="navbar bg-body-tertiary">
+    <nav class="navbar bg-body-tertiary shadow-lg p-3 mb-5 bg-white rounded" style="background: #eeeeee;;">
         <div class="container-fluid">
             <div>
-                <a class="navbar-brand"><a class="gradiente">CONTROLE</a> de Estudantes</a>
+                <a class="navbar-brand"><a class="gradiente">CONTROLE</a><a style="margin-left: 0.3vw;">de Estudantes</a></a>
             </div>
-            <div style="display: flex;">
+            <div style="display: flex;align-items: center;">
                 <a><b style="margin-right: 0.5vw">Cadastrar: </b></a>
-                <p data-bs-toggle="modal" data-bs-target="#aluno">Alunos</p>
-                <p style="margin-left: 1vw !important;margin-right: 1vw !important;">|</p>
-                <p data-bs-toggle="modal" data-bs-target="#sala">Sala</p>
+                <p class = "cadastrar" data-bs-toggle="modal" data-bs-target="#aluno" style="cursor: pointer;margin-bottom: 0;">Alunos</p>
+                <p style="margin-left: 1vw !important;margin-right: 1vw !important;margin-bottom: 0;">|</p>
+                <p class = "cadastrar" data-bs-toggle="modal" data-bs-target="#sala" style="cursor: pointer;margin-right: 1vw;margin-bottom: 0;">Sala</p>
             </div>
         </div>
     </nav>
@@ -32,25 +32,23 @@
     <div style="display:flex; justify-content: end;margin-top: 1vw;">
         <form action="/action_page.php">
             <label for="salas">Salas de aula:</label>
-            <select name="salas" id="salas">
+            <select style="cursor: pointer;" name="salas" id="salas">
                 <option value="ti">TI</option>
                 <option value="mecatronica">Mecatronica</option>
                 <option value="manufatura">Manufatura Avançada</option>
             </select>
         </form>
     </div>
-    
+
     <h5 style="display: flex;justify-content: center;">Alunos</h5>
 
     <div style="display: flex; flex-wrap: wrap;">
         <div class="card">
-            <img class="img-estudantes"
-                src="eu.jpg"
-                class="card-img-top">
+            <img class="img-estudantes" src="img/eu.jpg" class="card-img-top">
             <div class="card-body">
                 <h5 class="card-title">André</h5>
                 <p class="card-text">Idade: 18</p>
-                <button href="#" class="btn-card">Editar</button>
+                <button href="#" class="btn btn-outline-primary">Editar</button>
             </div>
         </div>
         <div class="card">
@@ -60,7 +58,7 @@
             <div class="card-body">
                 <h5 class="card-title">LeBron</h5>
                 <p class="card-text">Idade: 38</p>
-                <button href="#" class="btn-card">Editar</button>
+                <button href="#" class="btn btn-outline-primary">Editar</button>
             </div>
         </div>
         <div class="card">
@@ -70,7 +68,7 @@
             <div class="card-body">
                 <h5 class="card-title">LeBron</h5>
                 <p class="card-text">Idade: 38</p>
-                <button href="#" class="btn-card">Editar</button>
+                <button href="#" class="btn btn-outline-primary">Editar</button>
             </div>
         </div>
         <div class="card">
@@ -80,7 +78,7 @@
             <div class="card-body">
                 <h5 class="card-title">LeBron</h5>
                 <p class="card-text">Idade: 38</p>
-                <button href="#" class="btn-card">Editar</button>
+                <button href="#" class="btn btn-outline-primary">Editar</button>
             </div>
         </div>
         <div class="card">
@@ -90,7 +88,7 @@
             <div class="card-body">
                 <h5 class="card-title">LeBron</h5>
                 <p class="card-text">Idade: 38</p>
-                <button href="#" class="btn-card">Editar</button>
+                <button href="#" class="btn btn-outline-primary">Editar</button>
             </div>
         </div>
         <div class="card">
@@ -100,11 +98,24 @@
             <div class="card-body">
                 <h5 class="card-title">LeBron</h5>
                 <p class="card-text">Idade: 38</p>
-                <button href="#" class="btn-card">Editar</button>
+                <button href="#" class="btn btn-outline-primary">Editar</button>
             </div>
         </div>
     </div>
     </div>
+    <div class="container text-center">
+        <!-- https://getbootstrap.com/docs/5.3/layout/grid/ -->
+        <div class="row">
+          <div class="col">col</div>
+          <div class="col">col</div>
+          <div class="col">col</div>
+          <div class="col">col</div>
+        </div>
+        <div class="row">
+          <div class="col-8">col-8</div>
+          <div class="col-4">col-4</div>
+        </div>
+      </div>
 
     <!-- Modal -->
     <div class="modal fade" id="aluno" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -114,38 +125,34 @@
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastrar um novo aluno</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" style="display: block !important;">
                     <div>
-                        <label for="uname"><b>Nome</b></label>
-                        <input type="text" name="aname" required>
+                        <img id="imgFoto" src="img/user.png">
+                        <input style="display: none;" type="file" id="flImage" name="foto" accept="image/*">
                     </div>
-                    <div style="margin-top: 1vh;">
-                        <label for="idade"><b>Idade</b></label>
-                        <input type="number" placeholder="Idade" name="idade" required>
+                    <label for="aname">Nome</label>
+                    <input style="width: 100%;" type="text" name="aname" required>
+                    <label for="idade">Idade</label>
+                    <input style="width: 100%;" type="number" name="idade" required>
+                    <form action="/action_page.php">
+                        <label for="sexo">Sexo:</label>
+                        <select style="width: 100%;" name="sexo" placeholder="Sexo" id="sexo">
+                            <option value="ti">Masculino</option>
+                            <option value="mecatronica">Feminino</option>
+                            <option value="manufatura">Outro</option>
+                        </select>
+                    </form>
+                    <form action="/action_page.php">
+                        <label for="salas">Salas de aula:</label>
+                        <select style="width: 100%;" name="salas" id="salas">
+                            <option value="ti">TI</option>
+                            <option value="mecatronica">Mecatronica</option>
+                            <option value="manufatura">Manufatura Avançada</option>
+                        </select>
+                    </form>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">CADASTRAR</button>
                     </div>
-                    <div>
-                        <form action="/action_page.php">
-                            <label for="salas">Sexo:</label>
-                            <select name="salas" id="salas">
-                                <option value="ti">Masculino</option>
-                                <option value="mecatronica">Feminino</option>
-                                <option value="manufatura">Outro</option>
-                            </select>
-                        </form>
-                    </div>
-                    <div>
-                        <form action="/action_page.php">
-                            <label for="salas">Salas de aula:</label>
-                            <select name="salas" id="salas">
-                                <option value="ti">TI</option>
-                                <option value="mecatronica">Mecatronica</option>
-                                <option value="manufatura">Manufatura Avançada</option>
-                            </select>
-                        </form>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">CADASTRAR</button>
                 </div>
             </div>
         </div>
@@ -160,12 +167,12 @@
                 </div>
                 <div class="modal-body">
                     <div>
-                        <label for="uname"><b>Nome</b></label>
-                        <input type="text" name="sname" required>
+                        <label for="uname">Nome</label>
+                        <input style="width: 100%;" type="text" name="sname" required>
                     </div>
                     <div style="margin-top: 1vh;">
-                        <label for="capacidade"><b>Capacidade</b></label>
-                        <input type="number" name="capacidade" required>
+                        <label for="capacidade">Capacidade</label>
+                        <input style="width: 100%;" type="number" name="capacidade" required>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -175,6 +182,7 @@
             </div>
         </div>
     </div>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
