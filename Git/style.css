@@ -27,7 +27,7 @@
 }
 
 .card {
-    width: 20vw;
+    width: 17vw;
     margin: 2vh 0vw 2vh 3.9vw; /* top | right | bottom | left */
     text-align: center;
     background-color: #ffffff;
@@ -57,7 +57,7 @@ select{
 }
 
 .card h3{
- font-weight: 600;
+    font-weight: 600;
 }
 
 .cadastrar{
@@ -77,3 +77,27 @@ select{
     cursor: pointer;
 }
 
+.cards{
+    margin-left: 4vw;
+}
+
+.col{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 573px)
+{
+    .cards{
+        margin-left: 6vw;
+    }
+
+    .card{
+        width: 80vw;
+    }
+    .col{
+        align-items: center;
+        display: block;
+        flex-wrap: nowrap;
+    }
+}
