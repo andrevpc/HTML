@@ -1,0 +1,14 @@
+<form action="/action_page.php">
+                        <label for="salas">Salas de aula:</label>
+                        <select style="width: 100%;" name="salas" id="salas">
+                            <% for (let i=0; i<salas.length; i++) { %>
+                                <option value='<%= salas[i].Nome %>' > <%= salas[i].Nome %> </option>
+                                <% } %>
+                        </select>
+                    </form>
+
+                    <select style="width: 100%;" name="Sala" id="asala">
+                            <% for (let i=0; i<Sala.length; i++) { %>
+                                <option value='<%= Sala[i].Nome %>' > <%= Sala[i].Nome %> </option>
+                            <% } %>
+                        </select>

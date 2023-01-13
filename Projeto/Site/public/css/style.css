@@ -65,7 +65,7 @@ select{
 }
 
 .cadastrar:hover{
-    color: #1565c0;
+    color: #0077ff;
 }
 
 #imgFoto{
@@ -99,5 +99,11 @@ select{
         align-items: center;
         display: block;
         flex-wrap: nowrap;
+    }
+}
+
+@media screen and (max-width: 427px)
+{
+    .cad{
     }
 }
