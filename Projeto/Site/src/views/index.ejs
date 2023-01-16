@@ -15,31 +15,40 @@
 <link rel="stylesheet" href="css/style.css">
 
 <body>
-    <nav class="navbar bg-body-tertiary shadow-lg p-3 mb-5 bg-white rounded" style="background: #eeeeee;;">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-lg p-3 mb-5 bg-white rounded"
+        style="background: #eeeeee;;">
         <div class="container-fluid">
             <div class="d-flex align-items-center">
                 <a class="navbar-brand"><a class="gradiente">CONTROLE</a><a style="margin-left: 0.3vw;">de
                         Estudantes</a></a>
             </div>
-            <div class="cad d-flex align-items-center">
-                <a><b style="margin-right: 0.5vw">Cadastrar: </b></a>
-                <p class="cadastrar" data-bs-toggle="modal" data-bs-target="#aluno"
-                    style="cursor: pointer;margin-bottom: 0;">Alunos</p>
-                <p style="margin-left: 1vw !important;margin-right: 1vw !important;margin-bottom: 0;">|</p>
-                <p class="cadastrar" data-bs-toggle="modal" data-bs-target="#sala"
-                    style="cursor: pointer;margin-right: 1vw;margin-bottom: 0;">Sala</p>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarScroll">
+                <div class="cad d-flex align-items-center">
+                    <a><b style="margin-right: 0.5vw">Cadastrar: </b></a>
+                    <p class="cadastrar" data-bs-toggle="modal" data-bs-target="#aluno"
+                        style="cursor: pointer;margin-bottom: 0;">Alunos</p>
+                    <p style="margin-left: 1vw !important;margin-right: 1vw !important;margin-bottom: 0;">|</p>
+                    <p class="cadastrar" data-bs-toggle="modal" data-bs-target="#sala"
+                        style="cursor: pointer;margin-right: 1vw;margin-bottom: 0;">Sala</p>
+                </div>
             </div>
         </div>
     </nav>
 
     <div style="display:flex; justify-content: end;margin-top: 1vw;">
-        <form action="/action_page.php">
+        <form action="/" method="post">
             <label for="salas">Salas de aula:</label>
             <select id="salas" onchange="this.form.submit()" name="nome">
-                <option>Selecione uma sala</option>
+                <option value="cancel">Selecione uma sala</option>
                 <% for (let i=0; i<salas.length; i++) { %>
-                <option value='<%= salas[i].IDSala %>'> <%= salas[i].Nome %> </option>
-                <% } %>
+                    <option value='<%= salas[i].IDSala %>' <%=id==salas[i].IDSala ? 'selected' : '' %>>
+                        <%= salas[i].Nome %>
+                    </option>
+                    <% } %>
             </select>
         </form>
     </div>
@@ -47,70 +56,24 @@
     <h5 style="display: flex;justify-content: center;">Alunos</h5>
 
     <div class="cards">
-        <div class="col">
-            <div class="card">
-                <img class="img-estudantes" src="img/eu.jpg" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">André</h5>
-                    <p class="card-text">Idade: 18</p>
-                    <button href="#" class="btn btn-outline-primary">Editar</button>
+        <% for (let i=0; i<alunos.length; i++) { %>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="img/<%= alunos[i].Foto %>" class="card-img-top" alt="Foto
+aluno">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <%= alunos[i].Nome %>
+                        </h5>
+                        <p class="card-text">Idade: <%= alunos[i].Idade %>
+                        </p>
+                        <p class="cadastrar" data-bs-toggle="modal" data-bs-target="#aluno_edit"
+                            style="cursor: pointer;margin-bottom: 0;">Editar</p>
+                    </div>
                 </div>
             </div>
-            <div class="card">
-                <img class="img-estudantes"
-                    src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSheZXnf27LhoKkcVFu_IbieY6fXIRG4U1Dvj8EMoH_qyWZyHtv"
-                    class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">LeBron</h5>
-                    <p class="card-text">Idade: 38</p>
-                    <button href="#" class="btn btn-outline-primary">Editar</button>
-                </div>
-            </div>
-            <div class="card">
-                <img class="img-estudantes"
-                    src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSheZXnf27LhoKkcVFu_IbieY6fXIRG4U1Dvj8EMoH_qyWZyHtv"
-                    class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">LeBron</h5>
-                    <p class="card-text">Idade: 38</p>
-                    <button href="#" class="btn btn-outline-primary">Editar</button>
-                </div>
-            </div>
-            <div class="card">
-                <img class="img-estudantes"
-                    src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSheZXnf27LhoKkcVFu_IbieY6fXIRG4U1Dvj8EMoH_qyWZyHtv"
-                    class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">LeBron</h5>
-                    <p class="card-text">Idade: 38</p>
-                    <button href="#" class="btn btn-outline-primary">Editar</button>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <img class="img-estudantes"
-                    src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSheZXnf27LhoKkcVFu_IbieY6fXIRG4U1Dvj8EMoH_qyWZyHtv"
-                    class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">LeBron</h5>
-                    <p class="card-text">Idade: 38</p>
-                    <button href="#" class="btn btn-outline-primary">Editar</button>
-                </div>
-            </div>
-            <div class="card">
-                <img class="img-estudantes"
-                    src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSheZXnf27LhoKkcVFu_IbieY6fXIRG4U1Dvj8EMoH_qyWZyHtv"
-                    class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">LeBron</h5>
-                    <p class="card-text">Idade: 38</p>
-                    <button href="#" class="btn btn-outline-primary">Editar</button>
-                </div>
-            </div>
-        </div>
+            <% } %>
 
-    </div>
     </div>
 
     <!-- Modal -->
@@ -121,16 +84,16 @@
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastrar um novo aluno</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="/alunoInsert/" method="post">
+                <form action="/cadastroAluno" method="post" enctype="multipart/form-data">
                     <div class="modal-body" style="display: block !important;">
                         <div>
                             <img id="imgFoto" src="img/user.png">
                             <input style="display: none;" type="file" id="flImage" name="foto" accept="image/*">
                         </div>
                         <label for="aname">Nome</label>
-                        <input style="width: 100%;" type="text" name="aname" required>
+                        <input style="cursor: text;width: 100%;" type="text" name="aname" required>
                         <label for="idade">Idade</label>
-                        <input style="width: 100%;" type="number" name="idade" required>
+                        <input style="cursor: text;width: 100%;" type="number" name="idade" required>
                         <label for="sexo">Sexo:</label>
                         <select style="width: 100%;" name="sexo" placeholder="sexo" id="sexo">
                             <option value="masc">Masculino</option>
@@ -139,10 +102,11 @@
                         </select>
                         <label for="sala">Salas de aula:</label>
                         <select style="width: 100%;" name="sala" id="salas">
-                            <option>Selecione uma sala</option>
                             <% for (let i=0; i<salas.length; i++) { %>
-                                <option value='<%= salas[i].IDSala %>' > <%= salas[i].Nome %> </option>
-                            <% } %>
+                                <option value='<%= salas[i].IDSala %>'>
+                                    <%= salas[i].Nome %>
+                                </option>
+                                <% } %>
                         </select>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">CADASTRAR</button>
@@ -177,7 +141,51 @@
                 </form>
             </div>
         </div>
+
+        <div class="modal fade" id="aluno_edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar informações de um aluno</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="/editarAluno/<%= alunos.IDAluno %>" method="post" enctype="multipart/form-data">
+                        <div class="modal-body" style="display: block !important;">
+                            <div>
+                                <img src="/img/<%= alunos.Foto %>" alt="Selecione uma imagem" id="imgFoto">
+                                <input type="file" id="flImage" name="foto" accept="image/*">
+                            </div>
+                            <label>Nome</label>
+                            <input type="text" value="<%= alunos.Nome %>" name="nome">
+                            <label>Idade</label>
+                            <input type="text" value="<%= alunos.Idade %>" name="idade">
+                            <label for="sexo">Sexo:</label>
+                            <select style="width: 100%;" name="sexo" placeholder="sexo" id="sexo">
+                                <label>Sexo</label>
+                                <input type="text" value="<%= alunos.Sexo %>" name="sexo">
+                                <option value="masc">Masculino</option>
+                                <option value="femi">Feminino</option>
+                                <option value="outr">Outro</option>
+                            </select>
+                            <label for="sala">Salas de aula:</label>
+                            <select style="width: 100%;" name="sala" id="salas">
+                                <% for (let i=0; i<salas.length; i++) { %>
+                                    <option value='<%= salas[i].IDSala %>'>
+                                        <%= salas[i].Nome %>
+                                    </option>
+                                    <% } %>
+                            </select>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">CADASTRAR</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
+
+
     <script src="js/script.js"></script>
 </body>
 
