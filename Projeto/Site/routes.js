@@ -20,6 +20,7 @@ route.post('/salaInsert', cadastro.salaInsert);
 
 route.get("/alunos", cadastro.aluno)
 route.get('/editarAluno/:id', editar.alunos);
+route.post('/editarAluno/:id', multer(config).single('foto'), editar.adicionar);
 
 
 // Cadastro de aluno irá receber um arquivo com o "name" do HTML chamado de "foto"

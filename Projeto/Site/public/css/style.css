@@ -27,7 +27,7 @@
 }
 
 .card {
-    width: 17vw;
+    width: 15vw;
     text-align: center;
     background-color: #ffffff;
     border: solid 1px;
@@ -38,8 +38,8 @@
 }
 
 .card img{
-    width: 100%;
-    height: 100%;
+    width: 15vw;
+    height: 40vh;
     border-radius: 10px 10px 0px 0px;
 }
 
@@ -80,12 +80,16 @@ select{
 .cards{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 2vw;
 }
 
-@media screen and (max-width: 573px)
+@media screen and (max-width: 1000px)
 {
-    .cards{
+    .card img{
+        width: 80vw;
+        height: 50vh;
+        border-radius: 10px 10px 0px 0px;
     }
 
     .card{

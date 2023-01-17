@@ -20,7 +20,12 @@ module.exports = {
     });
 
     if (id == "cancel") {
-      res.render("../views/index", { salas, alunos: "", id: "" });
+      const alunos = await aluno.findAll({
+        raw: true,
+        attributes: ["IDAluno", "Nome", "Idade", "Foto"],
+      });
+  
+      res.render("../views/index", { salas, alunos: alunos, id: id });
       return
     }
 

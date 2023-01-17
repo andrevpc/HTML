@@ -19,3 +19,7 @@ file.addEventListener('change', () => {
     photo.src = reader.result
     }
 });
+
+$(document).ready(function(){
+    $("#myModal").modal('show');
+});

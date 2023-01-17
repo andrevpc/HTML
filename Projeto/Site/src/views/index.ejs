@@ -56,8 +56,7 @@
     <h5 style="display: flex;justify-content: center;">Alunos</h5>
 
     <div class="cards">
-        <% for (let i=0; i<alunos.length; i++) { %>
-            <div class="col">
+            <% for (let i=0; i<alunos.length; i++) { %>
                 <div class="card h-100">
                     <img src="img/<%= alunos[i].Foto %>" class="card-img-top" alt="Foto
 aluno">
@@ -67,12 +66,14 @@ aluno">
                         </h5>
                         <p class="card-text">Idade: <%= alunos[i].Idade %>
                         </p>
-                        <p class="cadastrar" data-bs-toggle="modal" data-bs-target="#aluno_edit"
-                            style="cursor: pointer;margin-bottom: 0;">Editar</p>
-                    </div>
+                        <form method="get" action="editarAluno/<%= alunos[i].IDAluno %>">
+                            <button type="submit" class="cadastrar" data-bs-toggle="modal" data-bs-target="#aluno_edit"
+                                style="cursor: pointer;margin-bottom: 0;">Editar</button>
+                        </form>
+
                 </div>
-            </div>
-            <% } %>
+        </div>
+        <% } %>
 
     </div>
 
@@ -87,7 +88,7 @@ aluno">
                 <form action="/cadastroAluno" method="post" enctype="multipart/form-data">
                     <div class="modal-body" style="display: block !important;">
                         <div>
-                            <img id="imgFoto" src="img/user.png">
+                            <img id="imgFoto" src="img/usuario.png">
                             <input style="display: none;" type="file" id="flImage" name="foto" accept="image/*">
                         </div>
                         <label for="aname">Nome</label>
@@ -128,11 +129,11 @@ aluno">
                     <div class="modal-body">
                         <div>
                             <label for="sname">Nome</label>
-                            <input style="width: 100%;" type="text" name="sname" required>
+                            <input style="cursor: text;width: 100%;" type="text" name="sname" required>
                         </div>
                         <div style="margin-top: 1vh;">
                             <label for="capacidade">Capacidade</label>
-                            <input style="width: 100%;" type="number" name="capacidade" required>
+                            <input style="cursor: text;width: 100%;" type="number" name="capacidade" required>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -141,50 +142,7 @@ aluno">
                 </form>
             </div>
         </div>
-
-        <div class="modal fade" id="aluno_edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar informações de um aluno</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <form action="/editarAluno/<%= alunos.IDAluno %>" method="post" enctype="multipart/form-data">
-                        <div class="modal-body" style="display: block !important;">
-                            <div>
-                                <img src="/img/<%= alunos.Foto %>" alt="Selecione uma imagem" id="imgFoto">
-                                <input type="file" id="flImage" name="foto" accept="image/*">
-                            </div>
-                            <label>Nome</label>
-                            <input type="text" value="<%= alunos.Nome %>" name="nome">
-                            <label>Idade</label>
-                            <input type="text" value="<%= alunos.Idade %>" name="idade">
-                            <label for="sexo">Sexo:</label>
-                            <select style="width: 100%;" name="sexo" placeholder="sexo" id="sexo">
-                                <label>Sexo</label>
-                                <input type="text" value="<%= alunos.Sexo %>" name="sexo">
-                                <option value="masc">Masculino</option>
-                                <option value="femi">Feminino</option>
-                                <option value="outr">Outro</option>
-                            </select>
-                            <label for="sala">Salas de aula:</label>
-                            <select style="width: 100%;" name="sala" id="salas">
-                                <% for (let i=0; i<salas.length; i++) { %>
-                                    <option value='<%= salas[i].IDSala %>'>
-                                        <%= salas[i].Nome %>
-                                    </option>
-                                    <% } %>
-                            </select>
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary">CADASTRAR</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
     </div>
-
 
     <script src="js/script.js"></script>
 </body>
