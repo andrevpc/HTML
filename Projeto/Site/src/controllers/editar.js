@@ -15,14 +15,13 @@ module.exports = {
       raw: true,
       attributes: ["IDSala", "Nome"],
     });
-    console.log(alunos);
     res.render("../views/editarAluno", { salas, alunos });
   },
 
-  async adicionar(req, res) {
+  async adicionarAluno(req, res) {
     const dados = req.body;
     const id = req.params.id;
-
+    console.log(dados)
     // Se foi enviado alguma foto
     if (req.file) {
       // Recebendo a antiga foto do aluno
@@ -61,27 +60,34 @@ module.exports = {
     );
     res.redirect("/");
   },
-};
 
-// async alunoInsert(req, res) {
-//     // Recebendo as informações pelo Body
-//     const dados = req.body;
-//     console.log(dados);
-//     // Nome padrão da foto
-//     let foto = "usuario.png";
-//     // Verificando se foi enviada alguma foto
-//     if (req.file) {
-//       // Pegar novo nome da foto
-//       foto = req.file.filename;
-//     }
-//     // Criando aluno no banco de dados
-//     await aluno.create({
-//       Nome: dados.aname,
-//       Idade: dados.idade,
-//       Sexo: dados.sexo,
-//       IDSala: dados.sala,
-//       Foto: foto,
-//     });
-//     // Redirecionar para a página principal
-//     res.redirect("/");
-//   },
+
+  async salas(req, res) {
+    // Recebendo o id da URL
+    const parametro = req.params.id;
+    const salas = await sala.findByPk(parametro, {
+      raw: true,
+      attributes: ["IDSala", "Nome", "Capacidade"],
+    });
+    res.render("../views/editarSala", { salas });
+  },
+
+  async adicionarSala(req, res) {
+    const dados = req.body;
+    const id = req.params.id;
+
+    console.log(dados)
+
+    // Dando upgrade nas novas informações
+    await sala.update(
+      {
+        Nome: dados.nome,
+        Capacidade: dados.capacidade
+      },
+      {
+        where: { IDSala: id },
+      }
+    );
+    res.redirect("/");
+  },
+};

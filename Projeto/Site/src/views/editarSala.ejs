@@ -47,33 +47,12 @@
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Editar informações de um aluno</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="/editarAluno/<%=alunos.IDAluno%>" method="post" enctype="multipart/form-data">
+                <form action="/editarSala/<%=salas.IDSala%>" method="post">
                     <div class="modal-body" style="display: block !important;">
-                        <div>
-                            <img src="/img/<%= alunos.Foto %>" alt="Selecione uma imagem" id="imgFoto">
-                            <input type="file" id="flImage" name="foto" accept="image/*">
-                        </div>
                         <label>Nome</label>
-                        <input style="cursor: text;width: 100%;" type="text" value="<%= alunos.Nome %>" name="nome">
-                        <label>Idade</label>
-                        <input style="cursor: text;width: 100%;" type="text" value="<%= alunos.Idade %>" name="idade">
-                        <label for="sexo">Sexo:</label>
-                            <select style="width: 100%;" type="text" placeholder="sexo" value="<%= alunos.Sexo %>" name="sexo">
-                            <option value="masc">Masculino</option>
-                            <option value="femi">Feminino</option>
-                            <option value="outr">Outro</option>
-                        </select>
-                        <label for="sala">Salas de aula:</label>
-                        <select style="width: 100%;" name="sala" id="salas">
-                            <% for (let i=0; i<salas.length; i++) { %>
-                                <option
-                                value='<%= salas[i].IDSala %>'
-                                    <% let x = (salas[i].IDSala == alunos.IDSala) ? "selected" : "" %> 
-                                <%=x%>>
-                                    <%= salas[i].Nome %>
-                                </option>
-                                <% } %>
-                        </select>
+                        <input style="cursor: text;width: 100%;" type="text" value="<%= salas.Nome %>" name="nome">
+                        <label>Capacidade</label>
+                        <input style="cursor: text;width: 100%;" type="text" value="<%= salas.Capacidade %>" name="capacidade">
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">CADASTRAR</button>
                         </div>

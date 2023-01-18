@@ -42,7 +42,7 @@
     <div style="display:flex; justify-content: end;margin-top: 1vw;">
         <form action="/" method="post">
             <label for="salas">Salas de aula:</label>
-            <select id="salas" onchange="this.form.submit()" name="nome">
+            <select id="salas" onchange="this.form.submit()" name="nome" style="height: 100%;">
                 <option value="cancel">Selecione uma sala</option>
                 <% for (let i=0; i<salas.length; i++) { %>
                     <option value='<%= salas[i].IDSala %>' <%=id==salas[i].IDSala ? 'selected' : '' %>>
@@ -51,29 +51,36 @@
                     <% } %>
             </select>
         </form>
+        <form method="get" action="editarSala/<%= id %>">
+            <button class="cadastrar btn btn-primary" type="submit">Editar</button>
+        </form>
     </div>
+
+    <% if (id!=""){ %>
+        <p style="display:flex; justify-content: end;margin: 1vh 10.5vw 0vh 0vw;"><%=alunos.length%>/<%=salaescolhida.Capacidade%></p>
+    <% } %>
 
     <h5 style="display: flex;justify-content: center;">Alunos</h5>
 
     <div class="cards">
-            <% for (let i=0; i<alunos.length; i++) { %>
-                <div class="card h-100">
-                    <img src="img/<%= alunos[i].Foto %>" class="card-img-top" alt="Foto
+        <% for (let i=0; i<alunos.length; i++) { %>
+            <div class="card h-100">
+                <img src="img/<%= alunos[i].Foto %>" class="card-img-top" alt="Foto
 aluno">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <%= alunos[i].Nome %>
-                        </h5>
-                        <p class="card-text">Idade: <%= alunos[i].Idade %>
-                        </p>
-                        <form method="get" action="editarAluno/<%= alunos[i].IDAluno %>">
-                            <button type="submit" class="cadastrar" data-bs-toggle="modal" data-bs-target="#aluno_edit"
-                                style="cursor: pointer;margin-bottom: 0;">Editar</button>
-                        </form>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <%= alunos[i].Nome %>
+                    </h5>
+                    <p class="card-text">Idade: <%= alunos[i].Idade %>
+                    </p>
+                    <form method="get" action="editarAluno/<%= alunos[i].IDAluno %>">
+                        <button class="cadastrar btn btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#aluno_edit"
+                            style="cursor: pointer;margin-bottom: 0;">Editar</button>
+                    </form>
 
                 </div>
-        </div>
-        <% } %>
+            </div>
+            <% } %>
 
     </div>
 

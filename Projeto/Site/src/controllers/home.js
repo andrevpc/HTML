@@ -8,7 +8,7 @@ module.exports = {
       raw: true, // Retorna somente os valores de uma tabela, sem os metadados.
       attributes: ["IDSala", "Nome"],
     });
-    res.render("../views/index", { salas, alunos: "", id: "" });
+    res.render("../views/index", { salas, alunos: "", id: "", salaescolhida: '' });
   },
 
   async pagInicialPost(req, res) {
@@ -29,12 +29,17 @@ module.exports = {
       return
     }
 
+    const salaescolhida = await sala.findByPk(id,{
+      raw: true,
+      attributes: ["IDSala", "Nome", "Capacidade"]
+    })
+
     const alunos = await aluno.findAll({
       raw: true,
       attributes: ["IDAluno", "Nome", "Idade", "Foto"],
       where: { IDSala: id },
     });
 
-    res.render("../views/index", { salas, alunos: alunos, id: id });
+    res.render("../views/index", { salas, alunos: alunos, id: id , salaescolhida: salaescolhida});
   },
 };
