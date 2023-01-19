@@ -45,7 +45,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Editar informações de um aluno</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" href="/" aria-label="Close"></button>
                 </div>
                 <form action="/editarSala/<%=salas.IDSala%>" method="post">
                     <div class="modal-body" style="display: block !important;">
@@ -68,7 +68,12 @@
     <script>
         $(document).ready(function(){
             $('#myModal').modal('show');
-        })        
+        })
+        $(document).ready(function(e) {
+            $('#myModal').on('hidden.bs.modal', function(e) {
+                window.location.href = '/'
+        });
+        });
     </script>
 </body>
 </html>

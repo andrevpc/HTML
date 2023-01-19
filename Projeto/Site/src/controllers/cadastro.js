@@ -1,11 +1,12 @@
 // Importando as tabelas do DB
 const sala = require("../model/sala");
 const aluno = require("../model/aluno");
+
 module.exports = {
   async sala(req, res) {
-    res.render("../views/index");
+    res.render("../views/index"); //nao precisa de nenhum dado
   },
-  async salaInsert(req, res) {
+  async salaInsert(req, res) { //create
     // Recebe as informações do front-end
     const dados = req.body;
     console.log(dados);
@@ -17,7 +18,7 @@ module.exports = {
     // Redirecionar para a página principal
     res.redirect("/");
   },
-  async aluno(req, res) {
+  async aluno(req, res) { //read
     // Encontrando todas as salas disponíveis no SQL
     const salas = await sala.findAll({
       raw: true, // Retorna somente os valores de uma tabela, sem os metadados.

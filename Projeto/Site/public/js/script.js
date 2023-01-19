@@ -20,6 +20,41 @@ file.addEventListener('change', () => {
     }
 });
 
-$(document).ready(function(){
-    $("#myModal").modal('show');
-});
+function americanas(id)
+{
+    let nome = document.getElementById(id+"Nome");
+    let idade = document.getElementById(id+"Idade");
+    let sexo = document.getElementById(id+"Sexo");
+    let foto = document.getElementById(id+"ImgT");
+    let idsala = document.getElementById(id+"IDSala");
+
+    document.getElementById("formNome").value = nome.innerText
+    document.getElementById("formIdade").value = idade.innerText
+    document.getElementById("formFoto").src = 'img/' + foto.innerText;
+    document.getElementById("formSexo").value = sexo.innerText
+    document.getElementById("formIDSala").value = idsala.innerText
+    document.getElementById("form_id").action = "/editarAluno/" + id
+
+
+    // let fotos = document.getElementById("formFoto");
+    // let fileFoto = document.getElementById("flImage");
+
+    // fotos.addEventListener('click', () => {
+    //     fileFoto.click();
+    // });
+
+    // fileFoto.addEventListener('change', () => {
+
+    //     if (fileFoto.length == 0)
+    //     {
+    //         return
+    //     }
+
+    //     let reader = new FileReader();
+
+    //     reader.readAsDataURL(file.files[0]);
+    //     reader.onload = () => {
+    //         fotos.src = reader.result
+    //     }
+    // });
+}

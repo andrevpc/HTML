@@ -1,3 +1,5 @@
+//rotas da url index/...
+
 const cadastro = require("./src/controllers/cadastro")
 // Iniciando Route do Express
 const express = require('express');
@@ -19,7 +21,6 @@ route.post('/salaInsert', cadastro.salaInsert);
 
 //Editar alunos
 route.get("/alunos", cadastro.aluno)
-route.get('/editarAluno/:id', editar.alunos);
 route.post('/editarAluno/:id', multer(config).single('foto'), editar.adicionarAluno);
 //Editar salas
 route.get('/editarSala/:id', editar.salas);

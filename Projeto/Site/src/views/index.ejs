@@ -65,18 +65,18 @@
     <div class="cards">
         <% for (let i=0; i<alunos.length; i++) { %>
             <div class="card h-100">
-                <img src="img/<%= alunos[i].Foto %>" class="card-img-top" alt="Foto
-aluno">
+                <img id="<%= alunos[i].IDAluno %>ImgO" src="img/<%= alunos[i].Foto %>" class="card-img-top" alt="Foto aluno">
+                <p id="<%= alunos[i].IDAluno %>ImgT" hidden><%= alunos[i].Foto %></p>
                 <div class="card-body">
-                    <h5 class="card-title">
+                    <h5 class="card-title" id="<%= alunos[i].IDAluno %>Nome">
                         <%= alunos[i].Nome %>
                     </h5>
-                    <p class="card-text">Idade: <%= alunos[i].Idade %>
+                    <p class="card-text">Idade: <x id="<%= alunos[i].IDAluno %>Idade"><%= alunos[i].Idade %></x>
                     </p>
-                    <form method="get" action="editarAluno/<%= alunos[i].IDAluno %>">
-                        <button class="cadastrar btn btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#aluno_edit"
-                            style="cursor: pointer;margin-bottom: 0;">Editar</button>
-                    </form>
+                    <p hidden id="<%= alunos[i].IDAluno %>Sexo"><%= alunos[i].Sexo %></p>
+                    <p hidden id="<%= alunos[i].IDAluno %>IDSala"><%= alunos[i].IDSala %></p>
+                    <p class="cadastrar" data-bs-toggle="modal" data-bs-target="#alunoEdit"
+                    style="cursor: pointer;margin-bottom: 0;" onclick="americanas('<%= alunos[i].IDAluno %>')">Editar</p>
 
                 </div>
             </div>
@@ -145,6 +145,49 @@ aluno">
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">CADASTRAR</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="alunoEdit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Editar informações de um aluno</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="form_id" action="/editarAluno/" method="post" enctype="multipart/form-data">
+                    <div class="modal-body" style="display: block !important;">
+                        <div>
+                            <img id="formFoto" src="<%= alunos.IDAluno %>" alt="Selecione uma imagem">
+                            <input type="file" id="flImage" name="foto" accept="image/*">
+                        </div>
+                        <label>Nome</label>
+                        <input id="formNome" style="cursor: text;width: 100%;" type="text" value="" name="nome">
+                        <label>Idade</label>
+                        <input id="formIdade" style="cursor: text;width: 100%;" type="text" value="" name="idade">
+                        <label for="sexo">Sexo:</label>
+                            <select id="formSexo" style="width: 100%;" type="text" placeholder="sexo" value="" name="sexo">
+                            <option value="masc">Masculino</option>
+                            <option value="femi">Feminino</option>
+                            <option value="outr">Outro</option>
+                        </select>
+                        <label for="sala">Salas de aula:</label>
+                        <select id="formIDSala" style="width: 100%;" name="sala" id="salas">
+                            <% for (let i=0; i<salas.length; i++) { %>
+                                <option
+                                value='<%= salas[i].IDSala %>'
+                                    <% let x = (salas[i].IDSala == alunos.IDSala) ? "selected" : "" %> 
+                                <%=x%>>
+                                    <%= salas[i].Nome %>
+                                </option>
+                                <% } %>
+                        </select>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">CADASTRAR</button>
+                        </div>
                     </div>
                 </form>
             </div>

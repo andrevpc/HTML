@@ -1,6 +1,9 @@
-const sala = require("./sala")
+//desenho dos objetos
+
 const Sequelize = require("sequelize");
 const database = require("../config/db");
+const sala = require("./sala") //pegando a tabela sala para FK
+
 const aluno = database.define("Aluno", {
   IDAluno: {
     type: Sequelize.INTEGER,

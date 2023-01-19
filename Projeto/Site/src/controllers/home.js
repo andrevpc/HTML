@@ -2,6 +2,8 @@ const database = require("../config/db");
 const sala = require("../model/sala");
 const aluno = require("../model/aluno");
 
+//post manda para o banco de dados e get pega do banco
+
 module.exports = {
   async pagInicialGet(req, res) {
     const salas = await sala.findAll({
@@ -22,10 +24,10 @@ module.exports = {
     if (id == "cancel") {
       const alunos = await aluno.findAll({
         raw: true,
-        attributes: ["IDAluno", "Nome", "Idade", "Foto"],
+        attributes: ["IDAluno", "Nome", "Idade", "Foto", "Sexo", "IDSala"],
       });
   
-      res.render("../views/index", { salas, alunos: alunos, id: id });
+      res.render("../views/index", { salas, alunos: alunos, id: id, salaescolhida: ''});
       return
     }
 
@@ -36,7 +38,7 @@ module.exports = {
 
     const alunos = await aluno.findAll({
       raw: true,
-      attributes: ["IDAluno", "Nome", "Idade", "Foto"],
+      attributes: ["IDAluno", "Nome", "Idade", "Foto", "Sexo", "IDSala"],
       where: { IDSala: id },
     });
 

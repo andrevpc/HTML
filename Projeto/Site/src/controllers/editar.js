@@ -4,21 +4,8 @@ const aluno = require("../model/aluno");
 const fs = require('fs');
 
 module.exports = {
-  async alunos(req, res) {
-    // Recebendo o id da URL
-    const parametro = req.params.id;
-    const alunos = await aluno.findByPk(parametro, {
-      raw: true, //Retorna os somente os valores de uma tabela, sem os metadados
-      attributes: ["IDAluno", "Nome", "Idade", "Sexo", "Foto", "IDSala"],
-    });
-    const salas = await sala.findAll({
-      raw: true,
-      attributes: ["IDSala", "Nome"],
-    });
-    res.render("../views/editarAluno", { salas, alunos });
-  },
 
-  async adicionarAluno(req, res) {
+  async adicionarAluno(req, res) { //update
     const dados = req.body;
     const id = req.params.id;
     console.log(dados)
