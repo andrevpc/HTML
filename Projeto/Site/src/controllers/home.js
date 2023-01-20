@@ -10,7 +10,22 @@ module.exports = {
       raw: true, // Retorna somente os valores de uma tabela, sem os metadados.
       attributes: ["IDSala", "Nome"],
     });
-    res.render("../views/index", { salas, alunos: "", id: "", salaescolhida: '' });
+    
+    const alunos = await aluno.findAll({
+      raw: true,
+      attributes: ["IDAluno", "Nome", "Idade", "Foto", "Sexo", "IDSala"],
+    });
+
+    const salaPreenchida = []
+    for (s of salas){
+      var alunosSala = await aluno.count({
+        raw: true,
+        where: {IDSala : s.IDSala}
+      })
+      s.Capacidade <= alunosSala ? salaPreenchida.push("disabled") : salaPreenchida.push("")
+    }
+
+    res.render("../views/index", { salas, alunos: alunos, id: '', salaescolhida: '', salaPreenchida: salaPreenchida});
   },
 
   async pagInicialPost(req, res) {
@@ -18,7 +33,7 @@ module.exports = {
 
     const salas = await sala.findAll({
       raw: true,
-      attributes: ["IDSala", "Nome"],
+      attributes: ["IDSala", "Nome", "Capacidade"],
     });
 
     if (id == "cancel") {
@@ -27,7 +42,16 @@ module.exports = {
         attributes: ["IDAluno", "Nome", "Idade", "Foto", "Sexo", "IDSala"],
       });
   
-      res.render("../views/index", { salas, alunos: alunos, id: id, salaescolhida: ''});
+      const salaPreenchida = []
+    for (s of salas){
+      var alunosSala = await aluno.count({
+        raw: true,
+        where: {IDSala : s.IDSala}
+      })
+      s.Capacidade <= alunosSala ? salaPreenchida.push("disabled") : salaPreenchida.push("")
+    }
+    
+      res.render("../views/index", { salas, alunos: alunos, id: id, salaescolhida: '', salaPreenchida: salaPreenchida});
       return
     }
 
@@ -42,6 +66,15 @@ module.exports = {
       where: { IDSala: id },
     });
 
-    res.render("../views/index", { salas, alunos: alunos, id: id , salaescolhida: salaescolhida});
+    const salaPreenchida = []
+    for (s of salas){
+      var alunosSala = await aluno.count({
+        raw: true,
+        where: {IDSala : s.IDSala}
+      })
+      s.Capacidade <= alunosSala ? salaPreenchida.push("disabled") : salaPreenchida.push("")
+    }
+
+    res.render("../views/index", { salas, alunos: alunos, id: id , salaescolhida: salaescolhida, salaPreenchida: salaPreenchida});
   },
 };

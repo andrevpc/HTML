@@ -57,7 +57,9 @@
     </div>
 
     <% if (id!=""){ %>
-        <p style="display:flex; justify-content: end;margin: 1vh 10.5vw 0vh 0vw;"><%=alunos.length%>/<%=salaescolhida.Capacidade%></p>
+        <p style="display:flex; justify-content: end;margin: 1vh 10.5vw 0vh 0vw;"><%=salaescolhida.Capacidade == null ? null : alunos.length%>
+            <%=salaescolhida.Capacidade == null ? null : "/"%>
+            <%=salaescolhida.Capacidade%></p>
     <% } %>
 
     <h5 style="display: flex;justify-content: center;">Alunos</h5>
@@ -111,7 +113,7 @@
                         <label for="sala">Salas de aula:</label>
                         <select style="width: 100%;" name="sala" id="salas">
                             <% for (let i=0; i<salas.length; i++) { %>
-                                <option value='<%= salas[i].IDSala %>'>
+                                <option value='<%= salas[i].IDSala %>' <%= salaPreenchida[i] %> >
                                     <%= salas[i].Nome %>
                                 </option>
                                 <% } %>
@@ -162,7 +164,7 @@
                     <div class="modal-body" style="display: block !important;">
                         <div>
                             <img id="formFoto" src="<%= alunos.IDAluno %>" alt="Selecione uma imagem">
-                            <input type="file" id="flImage" name="foto" accept="image/*">
+                            <input type="file" style="display: none;" id="filImage" name="foto" accept="image/*">
                         </div>
                         <label>Nome</label>
                         <input id="formNome" style="cursor: text;width: 100%;" type="text" value="" name="nome">
@@ -179,16 +181,18 @@
                             <% for (let i=0; i<salas.length; i++) { %>
                                 <option
                                 value='<%= salas[i].IDSala %>'
-                                    <% let x = (salas[i].IDSala == alunos.IDSala) ? "selected" : "" %> 
-                                <%=x%>>
+                                    <%= (salas[i].IDSala == alunos.IDSala) ? "selected" : "" %> <%= salaPreenchida[i] %> >
                                     <%= salas[i].Nome %>
                                 </option>
                                 <% } %>
                         </select>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">CADASTRAR</button>
+                            <button type="submit" class="btn btn-primary">EDITAR</button>
                         </div>
                     </div>
+                </form>
+                <form id="form_id_excluir" action="/excluirAluno/" method="post">
+                    <button style="width: 100%" type="submit" class="btn btn-danger">EXCLUIR</button>
                 </form>
             </div>
         </div>

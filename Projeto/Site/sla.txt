@@ -1,68 +1,16 @@
-<div class="card">
-            <img class="img-estudantes" src="img/eu.jpg" class="card-img-top">
-            <div class="card-body">
-                <h5 class="card-title">André</h5>
-                <p class="card-text">Idade: 18</p>
-                <button href="#" class="btn btn-outline-primary">Editar</button>
-            </div>
-        </div>
-        
-<div class="card">
-            <img class="img-estudantes"
-                src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSheZXnf27LhoKkcVFu_IbieY6fXIRG4U1Dvj8EMoH_qyWZyHtv"
-                class="card-img-top">
-            <div class="card-body">
-                <h5 class="card-title">LeBron</h5>
-                <p class="card-text">Idade: 38</p>
-                <button href="#" class="btn btn-outline-primary">Editar</button>
-            </div>
-        </div>
-        <div class="card">
-            <img class="img-estudantes"
-                src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSheZXnf27LhoKkcVFu_IbieY6fXIRG4U1Dvj8EMoH_qyWZyHtv"
-                class="card-img-top">
-            <div class="card-body">
-                <h5 class="card-title">LeBron</h5>
-                <p class="card-text">Idade: 38</p>
-                <button href="#" class="btn btn-outline-primary">Editar</button>
-            </div>
-        </div>
-        <div class="card">
-            <img class="img-estudantes"
-                src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSheZXnf27LhoKkcVFu_IbieY6fXIRG4U1Dvj8EMoH_qyWZyHtv"
-                class="card-img-top">
-            <div class="card-body">
-                <h5 class="card-title">LeBron</h5>
-                <p class="card-text">Idade: 38</p>
-                <button href="#" class="btn btn-outline-primary">Editar</button>
-            </div>
-        </div>
-        <div class="card">
-            <img class="img-estudantes"
-                src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSheZXnf27LhoKkcVFu_IbieY6fXIRG4U1Dvj8EMoH_qyWZyHtv"
-                class="card-img-top">
-            <div class="card-body">
-                <h5 class="card-title">LeBron</h5>
-                <p class="card-text">Idade: 38</p>
-                <button href="#" class="btn btn-outline-primary">Editar</button>
-            </div>
-        </div>
-        <div class="card">
-            <img class="img-estudantes"
-                src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSheZXnf27LhoKkcVFu_IbieY6fXIRG4U1Dvj8EMoH_qyWZyHtv"
-                class="card-img-top">
-            <div class="card-body">
-                <h5 class="card-title">LeBron</h5>
-                <p class="card-text">Idade: 38</p>
-                <button href="#" class="btn btn-outline-primary">Editar</button>
-            </div>
-        </div>
+if (dados.botao == "cadastrar")
+    {
+    await sala.create({
+      Nome: dados.sname,
+      Capacidade: dados.capacidade,
+    });
+    }
+    else
+    {
+      await sala.destroy({
+        where: {sname}
+      });
+    }
 
-<label for="sexo">Sexo:</label>
-                            <select style="width: 100%;" name="sexo" placeholder="sexo" id="sexo">
-                                <label>Sexo</label>
-                                <input type="text" value="<%= alunos.Sexo %>" name="sexo">
-                                <option value="masc">Masculino</option>
-                                <option value="femi">Feminino</option>
-                                <option value="outr">Outro</option>
-                            </select>
+<button type="submit" class="btn btn-primary" value="editar" name="botao">EDITAR</button>
+                        <button type="submit" class="btn btn-primary" value="excluir" name="botao">EXCLUIR</button>

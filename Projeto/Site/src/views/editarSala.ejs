@@ -54,9 +54,12 @@
                         <label>Capacidade</label>
                         <input style="cursor: text;width: 100%;" type="text" value="<%= salas.Capacidade %>" name="capacidade">
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">CADASTRAR</button>
+                            <button type="submit" class="btn btn-primary" value="editar" name="botao">EDITAR</button>
                         </div>
                     </div>
+                </form>
+                <form action="/excluirSala/<%=salas.IDSala%>" method="post">
+                    <button style="width: 100%" type="submit" class="btn btn-danger" value="excluir" name="botao">EXCLUIR</button>
                 </form>
             </div>
         </div>

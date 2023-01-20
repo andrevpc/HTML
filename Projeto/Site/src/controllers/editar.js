@@ -8,7 +8,6 @@ module.exports = {
   async adicionarAluno(req, res) { //update
     const dados = req.body;
     const id = req.params.id;
-    console.log(dados)
     // Se foi enviado alguma foto
     if (req.file) {
       // Recebendo a antiga foto do aluno
@@ -62,8 +61,6 @@ module.exports = {
   async adicionarSala(req, res) {
     const dados = req.body;
     const id = req.params.id;
-
-    console.log(dados)
 
     // Dando upgrade nas novas informações
     await sala.update(

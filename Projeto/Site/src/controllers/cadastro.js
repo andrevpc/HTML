@@ -9,7 +9,6 @@ module.exports = {
   async salaInsert(req, res) { //create
     // Recebe as informações do front-end
     const dados = req.body;
-    console.log(dados);
     // Criando sala no banco de dados
     await sala.create({
       Nome: dados.sname,
@@ -24,13 +23,20 @@ module.exports = {
       raw: true, // Retorna somente os valores de uma tabela, sem os metadados.
       attributes: ["IDSala", "Nome"],
     });
+    const salaPreenchida = []
+    for (s of salas){
+      var alunosSala = await aluno.count({
+        raw: true,
+        where: {IDSala : s.IDSala}
+      })
+      s.Capacidade <= alunosSala ? salaPreenchida.push("disabled") : salaPreenchida.push("")
+    }
     // Renderizando e passando o nome das salas para o front
-    res.render("../views/index", { salas });
+    res.render("../views/index", { salas, salaPreenchida: salaPreenchida });
   },
   async alunoInsert(req, res) {
     // Recebendo as informações pelo Body
     const dados = req.body;
-    console.log(dados);
     // Nome padrão da foto
     let foto = "usuario.png";
     // Verificando se foi enviada alguma foto

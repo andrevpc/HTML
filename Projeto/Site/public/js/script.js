@@ -34,27 +34,28 @@ function americanas(id)
     document.getElementById("formSexo").value = sexo.innerText
     document.getElementById("formIDSala").value = idsala.innerText
     document.getElementById("form_id").action = "/editarAluno/" + id
+    document.getElementById("form_id_excluir").action = "/excluirAluno/" + id
 
 
-    // let fotos = document.getElementById("formFoto");
-    // let fileFoto = document.getElementById("flImage");
+    let fotos = document.getElementById("formFoto");
+    let fileFoto = document.getElementById("filImage");
 
-    // fotos.addEventListener('click', () => {
-    //     fileFoto.click();
-    // });
+    fotos.addEventListener('click', () => {
+        fileFoto.click();
+    });
 
-    // fileFoto.addEventListener('change', () => {
+    fileFoto.addEventListener('change', () => {
 
-    //     if (fileFoto.length == 0)
-    //     {
-    //         return
-    //     }
+        if (fileFoto.files.length == 0)
+        {
+            return
+        }
 
-    //     let reader = new FileReader();
+        let reader = new FileReader();
 
-    //     reader.readAsDataURL(file.files[0]);
-    //     reader.onload = () => {
-    //         fotos.src = reader.result
-    //     }
-    // });
+        reader.readAsDataURL(fileFoto.files[0]);
+        reader.onload = () => {
+            fotos.src = reader.result
+        }
+    });
 }
